@@ -4,30 +4,34 @@ class QuizBrain {
   int _questionNumber = 0;
 
   List<Question> _questionBank = [
-    Question('Some cats are actually allergic to humans', true),
-    Question('You can lead a cow down stairs but not up stairs.', false),
-    Question('Approximately one quarter of human bones are in the feet.', true),
-    Question('A slug\'s blood is green.', true),
-    Question('Buzz Aldrin\'s mother\'s maiden name was \"Moon\".', true),
-    Question('It is illegal to pee in the Ocean in Portugal.', true),
+    Question('Einige Katzen sind tatsächlich allergisch gegen Menschen.', true),
     Question(
-        'No piece of square dry paper can be folded in half more than 7 times.',
+        'Sie können eine Kuh die Treppe hinunter führen, aber nicht die Treppe hinauf.',
         false),
     Question(
-        'In London, UK, if you happen to die in the House of Parliament, you are technically entitled to a state funeral, because the building is considered too sacred a place.',
+        'Ungefähr ein Viertel der menschlichen Knochen befindet sich in den Füßen.',
         true),
+    Question('Das Blut einer Schnecke ist grün.', true),
+    Question('Der Mädchenname von Buzz Aldrins Mutter war "Mond".', true),
+    Question('In Portugal ist es illegal, in den Ozean zu pinkeln.', true),
     Question(
-        'The loudest sound produced by any animal is 188 decibels. That animal is the African Elephant.',
+        'Kein Stück viereckiges trockenes Papier kann mehr als sieben Mal gefaltet werden.',
         false),
     Question(
-        'The total surface area of two human lungs is approximately 70 square metres.',
-        true),
-    Question('Google was originally called \"Backrub\".', true),
-    Question(
-        'Chocolate affects a dog\'s heart and nervous system; a few ounces are enough to kill a small dog.',
+        'Wenn Sie in London, Großbritannien, zufällig im House of Parliament sterben, haben Sie einen technischen Anspruch auf eine staatliche Beerdigung, da das Gebäude als zu heilig eingestuft wird.',
         true),
     Question(
-        'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
+        'Das lauteste Geräusch eines Tieres ist 188 Dezibel. Dieses Tier ist der afrikanische Elefant.',
+        false),
+    Question(
+        'Die Gesamtfläche von zwei menschlichen Lungen beträgt ungefähr 70 Quadratmeter.',
+        true),
+    Question('Google hieß ursprünglich "Backrub".', true),
+    Question(
+        'Schokolade beeinflusst das Herz und das Nervensystem eines Hundes. Ein paar Unzen sind genug, um einen kleinen Hund zu töten.',
+        true),
+    Question(
+        'Wenn Sie in West Virginia, USA, versehentlich ein Tier mit Ihrem Auto erwischt haben, können Sie es zum Essen mit nach Hause nehmen.',
         true),
   ];
 
@@ -45,9 +49,16 @@ class QuizBrain {
     return _questionBank[_questionNumber].questionAnswer;
   }
 
-  //TODO: Step 3 Part A - Create a method called isFinished() here that checks to see if we have reached the last question. It should return (have an output) true if we've reached the last question and it should return false if we're not there yet.
+  bool isFinished() {
+    if (_questionNumber >= _questionBank.length - 1) {
+      print('Now returning true');
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  //TODO: Step 3 Part B - Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
-
-  //TODO: Step 4 Part B - Create a reset() method here that sets the questionNumber back to 0.
+  void reset() {
+    _questionNumber = 0;
+  }
 }
